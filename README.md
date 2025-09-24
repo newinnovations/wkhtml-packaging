@@ -8,6 +8,7 @@ g++ 13 by default and required some patching of the Qt configure script.
 
 ## wkhtmltopdf
 
+- Debian 13: [trixie](https://github.com/newinnovations/wkhtml-packaging/releases/download/v0.12.6.1/wkhtmltopdf_0.12.6.1-trixie_amd64)
 - Debian 12: [bookworm](https://github.com/newinnovations/wkhtml-packaging/releases/download/v0.12.6.1/wkhtmltopdf_0.12.6.1-bookworm_amd64)
 - Debian 11: [bullseye](https://github.com/newinnovations/wkhtml-packaging/releases/download/v0.12.6.1/wkhtmltopdf_0.12.6.1-bullseye_amd64)
 - Ubuntu 24.04: [noble](https://github.com/newinnovations/wkhtml-packaging/releases/download/v0.12.6.1/wkhtmltopdf_0.12.6.1-noble_amd64)
@@ -16,6 +17,7 @@ g++ 13 by default and required some patching of the Qt configure script.
 
 ## wkhtmltox.deb
 
+- Debian 13: [trixie](https://github.com/newinnovations/wkhtml-packaging/releases/download/v0.12.6.1/wkhtmltox_0.12.6.1-trixie_amd64.deb)
 - Debian 12: [bookworm](https://github.com/newinnovations/wkhtml-packaging/releases/download/v0.12.6.1/wkhtmltox_0.12.6.1-bookworm_amd64.deb)
 - Debian 11: [bullseye](https://github.com/newinnovations/wkhtml-packaging/releases/download/v0.12.6.1/wkhtmltox_0.12.6.1-bullseye_amd64.deb)
 - Ubuntu 24.04: [noble](https://github.com/newinnovations/wkhtml-packaging/releases/download/v0.12.6.1/wkhtmltox_0.12.6.1-noble_amd64.deb)
