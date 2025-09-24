@@ -1,6 +1,6 @@
-name: release
+name: Release builds
 on:
-  workflow_dispatch
+  push:
 jobs:
   docker:
     runs-on: ubuntu-latest
@@ -32,11 +32,25 @@ jobs:
           ref: 0.12.6.x
       - name: build
         run: cd packaging && python3 ./build package-docker --clean ${{ matrix.package_target }} ../wkhtmltopdf
-      - uses: softprops/action-gh-release@v2
+      - name: create version based on current date
+        id: date
+        shell: bash
+        run: |
+          today=$(TZ='Europe/Amsterdam' date +'%Y-%m-%d')
+          version=$(echo $today | sed 's/-0*/./g')
+          echo "today=${today}"
+          echo "version=${version}"
+          echo "today=${today}" >> $GITHUB_OUTPUT
+          echo "version=${version}" >> $GITHUB_OUTPUT
+      - name: release
+        if: github.ref_name == 'master'
+        uses: ncipollo/release-action@v1
         with:
-          name: wkhtmltopdf 0.12.6.1
-          tag_name: v0.12.6.1
-          files: "packaging/targets/*"
-          fail_on_unmatched_files: false
-          draft: true
-          body: Builds of wkhtmltopdf (0.12.6.x branch) for debian and ubuntu (amd64). [build run](${{github.event.repository.html_url}}/actions/runs/${{github.run_id}})
+          name: ${{ steps.date.outputs.today }}
+          commit: ${{ github.sha }}
+          tag: ${{ steps.date.outputs.today }}
+          body: "Builds of wkhtmltopdf (0.12.6.x branch) for debian and ubuntu (amd64). [build run](${{github.event.repository.html_url}}/actions/runs/${{github.run_id}})"
+          makeLatest: true
+          allowUpdates: true
+          replacesArtifacts: true
+          artifacts: "packaging/targets/*"
