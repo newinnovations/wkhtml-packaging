@@ -10,6 +10,7 @@ jobs:
           - trixie-amd64
           - bookworm-amd64
           - bullseye-amd64
+          - resolute-amd64
           - noble-amd64
           - jammy-amd64
           - focal-amd64

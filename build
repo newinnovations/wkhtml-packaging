@@ -156,7 +156,7 @@ def compile_docker(config, target, src_dir, tgt_dir, debug=False):
 
     if not os.path.exists(os.path.join(tgt_dir, "qt_configured")):
         qtconf = config["docker-targets"][target].get("qt_config", "docker")
-        dshell("/src/qt", r"sed -i 's/12\*/13*|12*/' configure")
+        dshell("/src/qt", r"sed -i 's/12\*/15*|14*|13*|12*/' configure")
         dshell(
             "/tgt/qt",
             "/src/qt/configure %s %s %s --prefix=/tgt/qt %s"
